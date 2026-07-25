@@ -97,7 +97,6 @@ export const CONTACT_DETAILS: ContactDetail[] = [
 ];
 
 export const STATS: StatItem[] = [
-  { icon: Anchor, value: "10+", label: "Years Experience" },
   { icon: Handshake, value: "120+", label: "Global Partners" },
   { icon: Boxes, value: "2,500+", label: "Successful Shipments" },
   { icon: Users, value: "98%", label: "Customer Satisfaction" },

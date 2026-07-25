@@ -22,11 +22,11 @@ export default async function Image() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#f97316", display: "flex" }} />
+          <div style={{ width: 12, height: 12, borderRadius: 999, background: "#0ea5e9", display: "flex" }} />
           <div
             style={{
               fontSize: 26,
-              color: "#fdba74",
+              color: "#7dd3fc",
               fontWeight: 700,
               letterSpacing: 5,
               textTransform: "uppercase",

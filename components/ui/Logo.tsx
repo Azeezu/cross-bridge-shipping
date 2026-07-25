@@ -63,25 +63,30 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
+  /** "dark" for light backgrounds (header), "light" for the navy footer. */
   variant?: "dark" | "light";
   className?: string;
 }
 
-export function Logo({
-  variant = "dark",
-  className,
-}: LogoProps) {
-  return (
+export function Logo({ variant = "dark", className }: LogoProps) {
+  const image = (
     <Image
-      src={variant === "light" ? "/images/logo_invert.webp" : "/images/logo.webp"}
+      src="/images/logo.png"
       alt="Cross Bridge Shipping LLC"
-      width={280}
-      height={90}
+      width={808}
+      height={565}
       priority
-      className={cn(
-        "h-16 w-auto object-contain md:h-20",
-        className
-      )}
+      className="h-16 w-auto object-contain md:h-20"
     />
   );
+
+  if (variant === "light") {
+    return (
+      <span className={cn("inline-flex rounded-xl bg-white/95 px-4 py-2 shadow-sm", className)}>
+        {image}
+      </span>
+    );
+  }
+
+  return <span className={cn("inline-flex", className)}>{image}</span>;
 }
