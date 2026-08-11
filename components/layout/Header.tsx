@@ -71,7 +71,7 @@ export function Header() {
           isScrolled ? "border-primary-900/5 shadow-[0_4px_24px_-8px_rgba(11,31,58,0.15)]" : "border-transparent",
         )}
       >
-        <Container className="flex mh-[4.5rem] items-center justify-between md:h-20">
+        <Container className="flex mh-[4.8rem] items-center justify-between md:h-24">
           <a href="#home" aria-label="Cross Bridge Shipping — Home" className="shrink-0">
             {/* <Logo variant="dark" /> */}
             <Logo variant="dark" />

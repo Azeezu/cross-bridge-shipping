@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Phone, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { SITE_CONFIG } from "@/lib/constants";
+import { SERVICES, SITE_CONFIG } from "@/lib/constants";
 
 const container: Variants = {
   hidden: {},
@@ -19,71 +19,96 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    <section
-      id="home"
-      aria-label="Introduction"
-      className="relative overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white pt-10 pb-24 sm:pt-14 lg:pb-32 lg:pt-16"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 top-16 hidden size-[32rem] rounded-full bg-secondary-100/50 blur-3xl lg:block"
-      />
+    <section id="home" aria-label="Introduction" className="relative">
+      <div className="relative isolate overflow-hidden">
+        <Image
+          src="/images/banner.png"
+          alt="Container ship and cargo aircraft against the Dubai skyline at sunset"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-10 object-cover object-center"
+        />
+        {/* Keeps the navy headline legible over the bright sky on the left. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-white/85 via-white/45 to-transparent"
+        />
 
-      <Container className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-10">
-        <motion.div initial="hidden" animate="visible" variants={container}>
-          <motion.span variants={item} className="section-eyebrow">
-            Welcome to {SITE_CONFIG.legalName}
-          </motion.span>
-
-          <motion.h1
-            variants={item}
-            className="mt-5 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-primary-900 sm:text-5xl lg:text-[3.25rem]"
+        <Container className="relative pb-40 pt-20 sm:pb-48 sm:pt-24 lg:pb-56 lg:pt-32">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={container}
+            className="max-w-2xl"
           >
-            Reliable Shipping &amp; Logistics Solutions{" "}
-            <span className="text-secondary-500">Worldwide</span>
-          </motion.h1>
+            <motion.span
+              variants={item}
+              className="block font-display text-sm font-semibold uppercase tracking-[0.22em] text-secondary-600 sm:text-base"
+            >
+              Connecting Markets
+            </motion.span>
 
-          <motion.p variants={item} className="mt-6 max-w-lg text-base leading-relaxed text-ink-soft sm:text-lg">
-            {SITE_CONFIG.tagline}
-          </motion.p>
+            <motion.h1
+              variants={item}
+              className="mt-3 font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-primary-900 sm:text-5xl lg:text-6xl"
+            >
+              Delivering Trust
+            </motion.h1>
 
-          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
-            <Button href="#contact" size="lg" icon={ArrowRight}>
-              Get Quote
-            </Button>
-            <Button href={SITE_CONFIG.phoneHref} variant="outline" size="lg" icon={Phone} iconPosition="left">
-              Contact Us
-            </Button>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
-          className="relative"
-        >
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-2xl shadow-primary-900/20">
-            <Image
-              src="https://images.unsplash.com/photo-1741792191212-60d22002bd1b?q=80&w=1600&auto=format&fit=crop"
-              alt="Large container ship loaded with cargo at a busy port terminal"
-              fill
-              priority
-              sizes="(min-width: 1024px) 560px, (min-width: 640px) 80vw, 100vw"
-              className="object-cover"
+            <motion.span
+              variants={item}
+              aria-hidden="true"
+              className="mt-6 block h-0.5 w-28 rounded-full bg-secondary-500"
             />
-          </div>
 
-          <div className="absolute -bottom-6 -left-6 hidden items-center gap-3 rounded-2xl bg-white p-4 shadow-xl shadow-primary-900/10 sm:flex">
-            <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary-50 text-secondary-600">
-              <Users className="size-5" aria-hidden="true" />
-            </span>
-            <span>
-              <span className="block font-display text-lg font-bold text-primary-900">120+</span>
-              <span className="block text-xs text-ink-soft">Global Partners</span>
-            </span>
-          </div>
-        </motion.div>
+            <motion.p
+              variants={item}
+              className="mt-6 max-w-xl text-base leading-relaxed text-ink sm:text-lg"
+            >
+              {SITE_CONFIG.legalName} is a premier freight forwarding and logistics solutions
+              provider, connecting businesses worldwide through seamless and reliable shipping
+              services.
+            </motion.p>
+
+            <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
+              <Button href="#services" size="lg" icon={ArrowRight}>
+                Our Services
+              </Button>
+              <Button
+                href="#contact"
+                variant="outline"
+                size="lg"
+                icon={ArrowRight}
+                className="bg-white/80 backdrop-blur-sm"
+              >
+                Request a Quote
+              </Button>
+            </motion.div>
+          </motion.div>
+        </Container>
+      </div>
+
+      {/* Service strip — overlaps the banner, mirroring the live site. */}
+      <Container className="relative -mt-32 pb-12 lg:-mt-40">
+        <motion.ul
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35, ease: [0.25, 1, 0.5, 1] }}
+          className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-primary-100 shadow-2xl shadow-primary-900/15 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
+        >
+          {SERVICES.map(({ icon: Icon, title, description }) => (
+            <li key={title} className="flex gap-3 bg-white p-5">
+              <Icon className="size-7 shrink-0 text-secondary-500" aria-hidden="true" />
+              <div>
+                <h2 className="font-display text-sm font-bold uppercase tracking-wide text-primary-900">
+                  {title}
+                </h2>
+                <p className="mt-1.5 text-xs leading-relaxed text-ink-soft">{description}</p>
+              </div>
+            </li>
+          ))}
+        </motion.ul>
       </Container>
     </section>
   );

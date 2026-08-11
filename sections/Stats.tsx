@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function Stats() {
   return (
     <section aria-label="Company statistics" className="relative z-10">
-      <Container className="-mt-16 sm:-mt-20">
+      <Container>
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 rounded-2xl bg-white p-6 shadow-xl shadow-primary-900/10 ring-1 ring-primary-900/5 sm:grid-cols-3 sm:gap-0 sm:p-8">
           {STATS.map((stat, index) => (
             <FadeIn

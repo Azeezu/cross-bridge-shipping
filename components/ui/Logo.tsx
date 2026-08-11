@@ -76,7 +76,7 @@ export function Logo({ variant = "dark", className }: LogoProps) {
       width={808}
       height={565}
       priority
-      className="h-16 w-auto object-contain md:h-20"
+      className="h-16 w-auto object-contain md:h-23"
     />
   );
 
@@ -88,5 +88,5 @@ export function Logo({ variant = "dark", className }: LogoProps) {
     );
   }
 
-  return <span className={cn("inline-flex", className)}>{image}</span>;
+  return <span className={cn("flex", className)}>{image}</span>;
 }
