@@ -51,7 +51,7 @@ export function Hero() {
 
             <motion.h1
               variants={item}
-              className="mt-3 font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-primary-900 sm:text-5xl lg:text-6xl"
+              className="mt-3 font-display text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-primary-900 sm:text-5xl lg:text-4xl"
             >
               Delivering Trust
             </motion.h1>
